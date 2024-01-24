@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import {
-  StyleSheet,
+  StyleSheet
 } from 'react-native';
 import MenuTabs from './src/router/MenuTabs';
 
