@@ -1,7 +1,8 @@
 export const COLORS = {
     background: '#1f1f1f',
     font: 'black',
-    accent: '#c774e8'
+    accent: '#c774e8',
+    secondary: "#bfbfbf"
 }
 
 export const SIZES = {

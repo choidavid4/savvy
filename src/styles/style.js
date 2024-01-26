@@ -20,5 +20,27 @@ export const globalStyles = StyleSheet.create({
     p: {
         fontSize: SIZES.p,
         color: COLORS.font
+    },
+    bold: {
+        fontSize: SIZES.p,
+        color: COLORS.font,
+        fontWeight: "600"
+    },
+    horizontalContainer: {
+        flexDirection: 'row', 
+        gap: 10,
+        width: "100%"
+    },
+    mainContainer: {
+        flex: 1, 
+        padding: 16, 
+        alignItems: 'center',
+        gap: 20
+    },
+    card: {
+        padding: 20,
+        backgroundColor: 'white',
+        borderRadius: 8,
+        width: "100%"
     }
 });
