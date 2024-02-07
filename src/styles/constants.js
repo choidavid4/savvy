@@ -1,8 +1,10 @@
 export const COLORS = {
-    background: '#1f1f1f',
-    font: 'black',
-    accent: '#c774e8',
-    secondary: "#bfbfbf"
+    background: '#141414',
+    containerBackground: "#282828",
+    font: 'white',
+    primary: '#c774e8',
+    secondary: "#505050",
+    accent: "#94F88C"
 }
 
 export const SIZES = {
@@ -10,4 +12,8 @@ export const SIZES = {
     h2: 28,
     h3: 20,
     p: 14
+}
+
+export const FONTS = {
+    primary: 'Monserrat'
 }

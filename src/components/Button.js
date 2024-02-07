@@ -12,7 +12,7 @@ function Button({onPress, text, type}) {
 
 const getStyle = (type) => {
     const result = {
-        backgroundColor: COLORS.accent ,
+        backgroundColor: COLORS.primary ,
         color: COLORS.font,
         borderRadius: 20,
         fontSize: SIZES.p,
@@ -23,7 +23,7 @@ const getStyle = (type) => {
 
     switch(type) {
         case "primary":
-            result.backgroundColor = COLORS.accent;
+            result.backgroundColor = COLORS.primary;
             break;
         case "secondary":
             result.backgroundColor = COLORS.secondary;

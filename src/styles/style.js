@@ -33,14 +33,17 @@ export const globalStyles = StyleSheet.create({
     },
     mainContainer: {
         flex: 1, 
-        padding: 16, 
+        padding: 16,
+        paddingTop: 50, 
         alignItems: 'center',
-        gap: 20
+        gap: 40,
+        backgroundColor: COLORS.background
     },
     card: {
         padding: 20,
         backgroundColor: 'white',
         borderRadius: 8,
-        width: "100%"
+        width: "100%",
+        backgroundColor: COLORS.containerBackground
     }
 });

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import Title from '../components/Title'
+import { globalStyles } from '../styles/style'
 
 function Profile() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Title>Profile</Title>
+    <View style={globalStyles.mainContainer}>
+        <Text style={ globalStyles.h1 }>Profile</Text>
     </View>
   )
 }
