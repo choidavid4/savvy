@@ -6,12 +6,27 @@ import { COLORS, SIZES } from '../styles/constants';
 import { MainContext } from '../contexts/MainContext';
 
 function Home() {
-  // const [balance, setBalance] = useState(0);
-  // const {context, setContext} = useContext(MainContext);
+  const {context, setContext} = useContext(MainContext);
+  const [month, setMonth] = useState({
+    month: 1,
+    name: "February",
+    year: 2024,
+    id: "2024-1"
+  });
 
-  // setTimeout(() => {
-  //   setContext({balance: context.balance + 10});
-  // }, 1000)
+  let monthValues = {
+    income: 0,
+    expenses: 0,
+    balance: 0
+  }
+
+  if (context.monthlyBalances[month.id]) {
+    monthValues = {
+      income: context.monthlyBalances[month.id].income,
+      expenses: context.monthlyBalances[month.id].expenses,
+      balance: context.monthlyBalances[month.id].income - context.monthlyBalances[month.id].expenses
+    }
+  }
 
   return (
     <View style={globalStyles.mainContainer}>
@@ -19,23 +34,23 @@ function Home() {
           <Text style={{...globalStyles.h3, color: COLORS.primary}} >Balance</Text>
           <Text style={[globalStyles.p]} >Main Account</Text>
           <View style={{width: '100%', marginTop: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-            <Text style={[globalStyles.h1]} >$ {0}</Text>
+            <Text style={[globalStyles.h1]} >$ {context.balance}</Text>
             <Icon name="eye" size={25} color={COLORS.font} />
           </View>
         </View>
         <View style={{...styles.container, gap: 20}}>
-          <Text style={{...globalStyles.h3, textAlign: "center", marginBottom: 10, color: COLORS.primary}}>January</Text>
+          <Text style={{...globalStyles.h3, textAlign: "center", marginBottom: 10, color: COLORS.primary}}>{month.name + " " + month.year}</Text>
           <View style={styles.horizontalContainer}>
-            <Text style={[globalStyles.h3, { width: "30%", textAlign: "left" }]}>Income</Text>
-            <Text style={ {...globalStyles.p, fontSize: SIZES.h3} }>$ 200,000</Text>
+            <Text style={[globalStyles.h3, { width: "65%", textAlign: "left" }]}>Income</Text>
+            <Text style={ {...globalStyles.p, fontSize: SIZES.h3} }>$ {monthValues.income}</Text>
           </View>
           <View style={styles.horizontalContainer}>
-            <Text style={[globalStyles.h3, { width: "30%", textAlign: "left" }]}>Expenses</Text>
-            <Text style={ {...globalStyles.p, fontSize: SIZES.h3} }>$ 76,544</Text>
+            <Text style={[globalStyles.h3, { width: "65%", textAlign: "left" }]}>Expenses</Text>
+            <Text style={ {...globalStyles.p, fontSize: SIZES.h3} }>$ {monthValues.expenses}</Text>
           </View>
           <View style={styles.horizontalContainer}>
-            <Text style={[globalStyles.h3, { width: "30%", textAlign: "left" }]}>Remaining</Text>
-            <Text style={ {...globalStyles.p, fontSize: SIZES.h3} }>$ 123,456</Text>
+            <Text style={[globalStyles.h3, { width: "65%", textAlign: "left" }]}>Monthly Balance</Text>
+            <Text style={ {...globalStyles.p, fontSize: SIZES.h3} }>$ { monthValues.balance }</Text>
           </View>
         </View>
     </View>

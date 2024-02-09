@@ -8,14 +8,26 @@ import { MainContext } from './src/contexts/MainContext';
 
 function App() {
   const [context, setContext] = useState({
-    balance: 0,
+    balance: 1000,
+    incomes: [],
+    expenses: [],
+    monthlyBalances: {
+      "2024-0": {
+        month: 0,
+        name: "January",
+        year: 2024,
+        id: "2024-0",
+        income: 0,
+        expenses: 0
+      }
+    },
   });
 
   return (
     <NavigationContainer>
-      {/* <MainContext.Provider value={{context, setContext}}> */}
+      <MainContext.Provider value={{context, setContext}}>
         <MenuTabs/>
-      {/* </MainContext.Provider> */}
+      </MainContext.Provider>
     </NavigationContainer> 
   ); 
 }
