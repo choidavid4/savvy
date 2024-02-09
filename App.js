@@ -1,14 +1,21 @@
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet
 } from 'react-native';
 import MenuTabs from './src/router/MenuTabs';
+import { MainContext } from './src/contexts/MainContext';
 
-function App(): React.JSX.Element {
+function App() {
+  const [context, setContext] = useState({
+    balance: 0,
+  });
+
   return (
     <NavigationContainer>
-      <MenuTabs/>
+      {/* <MainContext.Provider value={{context, setContext}}> */}
+        <MenuTabs/>
+      {/* </MainContext.Provider> */}
     </NavigationContainer> 
   ); 
 }

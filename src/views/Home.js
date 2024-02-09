@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { globalStyles } from '../styles/style'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { COLORS, SIZES } from '../styles/constants';
+import { MainContext } from '../contexts/MainContext';
 
 function Home() {
-  const [balance, setBalance] = useState(0);
+  // const [balance, setBalance] = useState(0);
+  // const {context, setContext} = useContext(MainContext);
 
-  setTimeout(() => {
-    setBalance(balance + 10);
-  }, 1000)
+  // setTimeout(() => {
+  //   setContext({balance: context.balance + 10});
+  // }, 1000)
 
   return (
     <View style={globalStyles.mainContainer}>
@@ -17,7 +19,7 @@ function Home() {
           <Text style={{...globalStyles.h3, color: COLORS.primary}} >Balance</Text>
           <Text style={[globalStyles.p]} >Main Account</Text>
           <View style={{width: '100%', marginTop: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-            <Text style={[globalStyles.h1]} >$ {balance}</Text>
+            <Text style={[globalStyles.h1]} >$ {0}</Text>
             <Icon name="eye" size={25} color={COLORS.font} />
           </View>
         </View>
