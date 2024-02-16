@@ -9,7 +9,7 @@ import { MainContext } from '../contexts/MainContext'
 
 function New() {
 
-  const {context, setContext} = useContext(MainContext);
+  const {context, setContextWrapper} = useContext(MainContext);
 
   const [date, setDate] = useState(new Date());
   const [isIncome, setIsIncome] = useState(true);
@@ -47,7 +47,7 @@ function New() {
         transactions: []
       };
 
-      setContext(newContext);
+      setContextWrapper(newContext);
     }
 
     data.value = Number(data.value);
@@ -63,7 +63,7 @@ function New() {
       newContext.monthlyBalances[monthId].income += data.value;
       
       newContext.monthlyBalances[monthId].transactions.unshift(transaction);
-      setContext(newContext);
+      setContextWrapper(newContext);
       showToast("Income saved: $ " + data.value);
 
     } else {
@@ -74,7 +74,7 @@ function New() {
       newContext.monthlyBalances[monthId].expenses += data.value;
       
       newContext.monthlyBalances[monthId].transactions.unshift(transaction);
-      setContext(newContext);
+      setContextWrapper(newContext);
       showToast("Expense saved: $ " + data.value);
     }
 

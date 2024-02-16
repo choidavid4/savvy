@@ -5,9 +5,11 @@ import {
 } from 'react-native';
 import MenuTabs from './src/router/MenuTabs';
 import { MainContext } from './src/contexts/MainContext';
+// import { MMKVLoader, useMMKVStorage } from 'react-native-mmkv-storage';
 
+// const storage = new MMKVLoader().initialize();
 function App() {
-  const [context, setContext] = useState({
+  const defaultValues = {
     balance: 0,
     incomes: [],
     expenses: [],
@@ -22,11 +24,19 @@ function App() {
         transactions: [],
       }
     },
-  });
+  };
+
+  // const [persistedData, setPersistedData] = useMMKVStorage('persistedData', storage, defaultValues);
+  const [context, setContext] = useState(defaultValues);
+
+  const setContextWrapper = (context) => {
+    setContext(context);
+    // setPersistedData(context);
+  }
 
   return (
     <NavigationContainer>
-      <MainContext.Provider value={{context, setContext}}>
+      <MainContext.Provider value={{context, setContextWrapper}}>
         <MenuTabs/>
       </MainContext.Provider>
     </NavigationContainer> 

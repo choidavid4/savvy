@@ -8,7 +8,7 @@ import Transaction from '../components/Transaction';
 import Button from '../components/Button';
 
 function Home() {
-  const {context, setContext} = useContext(MainContext);
+  const {context, setContextWrapper} = useContext(MainContext);
   const [month, setMonth] = useState({
     month: 1,
     name: "February",
