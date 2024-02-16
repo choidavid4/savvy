@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { Pressable, Text, TextInput, View } from 'react-native'
+import { Pressable, Text, TextInput, ToastAndroid, View } from 'react-native'
 import { globalStyles } from '../styles/style'
 import Button from '../components/Button'
 import { Controller, useForm } from 'react-hook-form'
 import DatePicker from 'react-native-date-picker'
-import { COLORS } from '../styles/constants'
+import { COLORS, STRINGS } from '../styles/constants'
 import { MainContext } from '../contexts/MainContext'
 
 function New() {
@@ -14,6 +14,10 @@ function New() {
   const [date, setDate] = useState(new Date());
   const [isIncome, setIsIncome] = useState(true);
   const { control, handleSubmit } = useForm();
+
+  const showToast = (msg) => {
+    ToastAndroid.show(msg, ToastAndroid.SHORT);
+  };
 
   const onSubmit = (data) => {
     // crear el movimiento
@@ -28,7 +32,6 @@ function New() {
 
     // Create monthlyBalance object if it does not exist
     if (!context.monthlyBalances[monthId]) {
-      const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
       const newContext = {
         ...context
@@ -38,9 +41,10 @@ function New() {
         month: date.getMonth(),
         year: date.getFullYear(),
         id: monthId,
-        name: monthArray[date.getMonth()],
+        name: STRINGS.monthArray[date.getMonth()],
         income: 0,
-        expenses: 0
+        expenses: 0,
+        transactions: []
       };
 
       setContext(newContext);
@@ -57,8 +61,10 @@ function New() {
       newContext.incomes.unshift(transaction);
       newContext.balance += data.value;
       newContext.monthlyBalances[monthId].income += data.value;
-
+      
+      newContext.monthlyBalances[monthId].transactions.unshift(transaction);
       setContext(newContext);
+      showToast("Income saved: $ " + data.value);
 
     } else {
       const newContext = {...context};
@@ -66,15 +72,17 @@ function New() {
       newContext.expenses.unshift(transaction);
       newContext.balance -= data.value;
       newContext.monthlyBalances[monthId].expenses += data.value;
-
+      
+      newContext.monthlyBalances[monthId].transactions.unshift(transaction);
       setContext(newContext);
+      showToast("Expense saved: $ " + data.value);
     }
 
     // data.value = "";
     // data.description = "";
 
   }
-
+  
   return (
     <View style={globalStyles.mainContainer}>
       <View style={{ ...globalStyles.horizontalContainer, justifyContent: 'space-around' }}>

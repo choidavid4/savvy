@@ -2,10 +2,10 @@ import React from 'react'
 import { Pressable, StyleSheet, Text } from 'react-native'
 import { COLORS, SIZES } from '../styles/constants';
 
-function Button({onPress, text, type}) {
+function Button({onPress, text, type, styles={}}) {
   return (
     <Pressable onPress={onPress}>
-        <Text style={getStyle(type)}>{text}</Text>
+        <Text style={[getStyle(type), styles]}>{text}</Text>
     </Pressable>
   )
 }

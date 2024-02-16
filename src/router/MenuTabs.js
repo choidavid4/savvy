@@ -22,30 +22,30 @@ function MenuTabs() {
         tabBarIcon: ({ focused, color, size }) => <Icon name="home" size={25} color={focused ? COLORS.primary : COLORS.font} />,
         tabBarShowLabel: false
       }}/>
-      <Tab.Screen name="Categories" component={Categories} 
+      {/* <Tab.Screen name="Categories" component={Categories} 
         options={{
         tabBarIcon: ({ focused, color, size }) => <Icon name="format-list-bulleted" size={25} color={focused ? COLORS.primary : COLORS.font} />,
         tabBarShowLabel: false
       }}
-      />
+      /> */}
       <Tab.Screen name="New" component={New} 
         options={{
         tabBarIcon: ({ focused, color, size }) => <Icon name="plus" size={30} color={focused ? COLORS.primary : COLORS.font} />,
         tabBarShowLabel: false
       }}
       />
-      <Tab.Screen name="Savings" component={Savings} 
+      {/* <Tab.Screen name="Savings" component={Savings} 
         options={{
         tabBarIcon: ({ focused, color, size }) => <IconFontisto name="dollar" size={22} color={focused ? COLORS.primary : COLORS.font} />,
         tabBarShowLabel: false
       }}
-      />
-      <Tab.Screen name="Profile" component={Profile} 
+      /> */}
+      {/* <Tab.Screen name="Profile" component={Profile} 
         options={{
         tabBarIcon: ({ focused, color, size }) => <Icon name="account" size={25} color={focused ? COLORS.primary : COLORS.font} />,
         tabBarShowLabel: false
       }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }

@@ -10,7 +10,7 @@
 
 
 TODO:
-- Mensaje de exito al guardar transaccion
-- Poder cambiar de mes
-- Mostrar historial de movimientos
-- Persistencia de datos
+- Mensaje de exito al guardar transaccion ✅
+- Mostrar historial de movimientos ✅
+- Poder cambiar de mes ✅
+- Persistencia de datos 

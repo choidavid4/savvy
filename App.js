@@ -8,7 +8,7 @@ import { MainContext } from './src/contexts/MainContext';
 
 function App() {
   const [context, setContext] = useState({
-    balance: 1000,
+    balance: 0,
     incomes: [],
     expenses: [],
     monthlyBalances: {
@@ -18,7 +18,8 @@ function App() {
         year: 2024,
         id: "2024-0",
         income: 0,
-        expenses: 0
+        expenses: 0,
+        transactions: [],
       }
     },
   });
